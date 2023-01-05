@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, Papel o Tijera</title>
+</head>
+<body>
+    <!-- <section>
+        <h1>Ingresa una de las opciones: </h1>
+        <h2>Piedra: 1</h2>
+        <h2>Papel: 2</h2>
+        <h2>Tijera: 3</h2>
+
+    </section> -->
+    <script>
+        // Calculando valor aleatorio para computadora
+        let eCompu = Math.random();
+        eCompu *= 3;
+        eCompu = Math.round(eCompu);
+        let elecion = Number(prompt("Escribe la opcion que prefieras:\nPiedra: 1; Papel: 2; Tijera: 3;"));
+        if(eCompu == elecion){
+            alert("Empate");
+        } else if ((eCompu - 1) > elecion || eCompu++ == elecion || eCompu-- == elecion){
+            alert("Ganastes");
+        } else {
+            alert("Perdiste");
+        }
+    </script>
+</body>
+</html>
