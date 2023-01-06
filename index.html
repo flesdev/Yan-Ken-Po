@@ -4,17 +4,106 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Piedra, Papel o Tijera</title>
 </head>
 <body>
-    <!-- <section>
-        <h1>Ingresa una de las opciones: </h1>
-        <h2>Piedra: 1</h2>
-        <h2>Papel: 2</h2>
-        <h2>Tijera: 3</h2>
+    <main class="main">
+        <section class="container">
+            <h2 class="container__title">Yan-Ken-Po</h2>
+            <div class="container__choose">
+                <h3 class="container__choose--title">Selecciona tu opción</h3>
+                <div class="container__choose--button" onclick="ePiedra()">Piedra</div>
+                <div class="container__choose--button" onclick="ePapel()">Papel</div>
+                <div class="container__choose--button" onclick="eTijera()">Tijera</div>
+            </div>
+            <div class="container__score">
+                <h3 class="container__score--title">Score</h3>
+                <h4>Nombre:</h4>
+                <h4 id="usuarioScore" class="number">0</h4>
+                <h4>Computadora:</h4>
+                <h4 id="compuScore" class="number">0</h4>
+            </div>
+        </section>
+    </main>
 
-    </section> -->
     <script>
+
+        let computadora = 0;
+        let usuario = 0;
+
+        const usuarioScore = document.getElementById("usuarioScore");
+        const compuScore = document.getElementById("compuScore");
+        
+        function ganaste() {
+            usuario++;
+            usuarioScore.innerHTML = `${usuario}`;
+        }
+
+        function perdiste() {
+            computadora++;
+            compuScore.innerHTML = `${computadora}`;
+        }
+
+        function computerOption() {
+            // Valor aleatorio para la computadora
+            let e = Math.random();
+            e *= 3;
+            e = Math.round(e); // 1, 2 o 3
+            return e;
+        }
+
+        function ePiedra() {
+            let eCompu = computerOption();
+
+            if (eCompu == 1) {
+                alert("Piedra y piedra: Empate");
+            } else if(eCompu == 2){
+                alert("Piedra y papel: Perdiste");
+                perdiste();
+            } else{
+                alert("Piedra y tijera: Ganaste");
+                ganaste();
+            }
+        }
+
+        function ePapel() {
+            let eCompu = computerOption();
+
+            if (eCompu == 2) {
+                alert("Papel y papel: Empate");
+            } else if(eCompu == 1){
+                alert("Papel y piedra: Ganaste");
+                ganaste();
+            } else{
+                alert("Papel y tijera: Perdiste");
+                perdiste();
+            }
+        }
+
+        function eTijera() {
+            let eCompu = computerOption();
+
+            if (eCompu == 3) {
+                alert("Tijera y tijera: Empate");
+            } else if(eCompu == 1){
+                alert("Tijera y piedra: Perdiste");
+                perdiste();
+            } else{
+                alert("Tijera y papel: Ganaste");
+                ganaste();
+            }
+        }
+
+
+    </script>
+    
+    <!-- <script>
+
+<img src="https://img.icons8.com/material-outlined/24/94D82D/checkmark--v1.png"/>
+<img src="https://img.icons8.com/ios/50/FA5252/delete-sign--v1.png"/>
+
+
         // Calculando valor aleatorio para computadora
         let eCompu = Math.random();
         eCompu *= 3;
@@ -27,6 +116,6 @@
         } else {
             alert("Perdiste");
         }
-    </script>
+    </script> -->
 </body>
 </html>
